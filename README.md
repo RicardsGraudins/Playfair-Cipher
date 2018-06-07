@@ -34,11 +34,23 @@ Decompose the plaintext into a sequence of diagraphs and encrypt each pair of le
 **Rule 1: Diagraph Letters in Different Rows and Columns:**  
 Create a “box” inside the matrix with each diagraph letter as a corner and read off the letter at the opposite corner of the same row, e.g. AR→SI. This can also be expressed as cipher(B, P)={matrix[row(B)][col(P)], matrix[row(P)][col(B)]}. Reverse the process to decrypt a cypher-text diagraph. 
 
+<p align="center">
+  <img src="https://github.com/RicardsGraudins/Playfair-Cipher/blob/master/Resources/Rule_1.PNG">
+</p>
+
 **Rule 2: Diagraph Letters in Same Row:**  
 Replace any letters that appear on the same row with the letters to their immediate right, wrapping around the matrix if necessary. Decrypt by replacing cipher-text letters the with letters on their immediate left.
 
+<p align="center">
+  <img src="https://github.com/RicardsGraudins/Playfair-Cipher/blob/master/Resources/Rule_2.PNG">
+</p>
+
 **Rule 3: Diagraph Letters in Same Column**  
 Replace any letters that appear on the same column with the letters immediately below, wrapping back around the top of the column if necessary. Decrypt by replacing ciphertext letters the with letters immediately above. 
+
+<p align="center">
+  <img src="https://github.com/RicardsGraudins/Playfair-Cipher/blob/master/Resources/Rule_3.PNG">
+</p>
 
 The Playfair Cipher suffers from the following three basic weaknesses that can be exploited to break the cipher, even with a pen and paper:  
 
@@ -49,7 +61,15 @@ The Playfair Cipher suffers from the following three basic weaknesses that can b
 ## The Simulated Annealing Algorithm:
 Simulated annealing (SA) is an excellent approach for breaking a cipher using a randomly generated key. Unlike conventional Hill Climbing algorithms, that are easily side-tracked by local optima, SA uses randomization to avoid heuristic plateaux and attempt to find a global maxima solution. The following pseudocode shows how simulated annealing can be used break a Playfair Cipher. Note that the initial value of the variables temp and transitions can have a major impact on the success of the SA algorithm. Both variables control the cooling schedule of SA and should be experimented with for best results.
 
+<p align="center">
+  <img src="https://github.com/RicardsGraudins/Playfair-Cipher/blob/master/Resources/Pseudo_1.PNG">
+</p>
+
 The generation of a random 25-letter key on line 1 only requires that we shuffle a 25 letter alphabet. A simple algorithm for achieving this was published in 1938 by Fisher and Yates. The Fisher–Yates Shuffle generates a random permutation of a finite sequence, i.e. it randomly shuffles an array key of n elements (indices 0..n-1) as follows:
+
+<p align="center">
+  <img src="https://github.com/RicardsGraudins/Playfair-Cipher/blob/master/Resources/Pseudo_2.PNG">
+</p>
 
 The method shuffleKey() on line 6 should make the following changes to the key with the frequency given (you can approximate this using Math.random() * 100): 
 * Swap single letters (90%) 
