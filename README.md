@@ -1,5 +1,7 @@
 # Playfair-Cipher
-This project revolves around using the simulated annealing algorithm to break a Playfair Cipher.
+This project revolves around using the simulated annealing algorithm to break a Playfair Cipher.  
+
+This repository contains code and information for my fourth-year (hons) undergraduate project for the module **Artificial Intelligence**. The module is taught to undergraduate students at [GMIT](http://www.gmit.ie/) in the Department of Computer Science and Applied Physics for the course [B.S.c. (Hons) in Software Developement.](https://www.gmit.ie/software-development/bachelor-science-honours-software-development). The lecturer is John Healy.
 
 ## Overview
 The field of *[cryptanalysis](https://en.wikipedia.org/wiki/Cryptanalysis)* is concerned with the study of ciphers, having as its objective the identification of weaknesses within a cryptographic system that may be exploited to convert encrypted data (cipher-text) into unencrypted data (plain-text). Whether using symmetric or asymmetric techniques, cryptanalysis assumes no knowledge of the correct cryptographic key or even the cryptographic algorithm being used. 
@@ -116,3 +118,14 @@ The 4-grams of “HAPPYDAYS”, their count, probability and log value are tabul
 | DAYS | 635317 | 0.000150401 | -3.822746584 | 
 
 The final score, **h(n)**, for “HAPPYDAYS” is just the sum of the log probabilities, i.e. 3.960779349 + -4.557751689 + -5.964871583 + -6.467676267 + -4.590956247 + 3.822746584 = **-29.36478172**. A decrypted message with a larger score than this is more “English” than this text and therefore must have been decrypted with a “better” key.
+
+## How to run:
+1. Download repository.
+2. CD into runme folder.
+3. java -cp playfair.jar ie.gmit.sw.ai.CipherBreaker
+
+Decryption key for encrypted file is **THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOGS**.  
+**Note**: that the weaknesses outlined earlier rely on repetition and frequency counts and, in the absence of cribs, require enough cipher-text to reveal patterns. In practice, this implies that at least 200 characters of cipher-text are available. It is up to the user to determine the correct/optimal temperature and the number of transitions in order to break the Playfair Cipher when using the Simulated Annealing Algorithm.
+
+## References
+* Goldberg, D., 1991. What every computer scientist should know about floating-point arithmetic. ACM Computing Surveys (CSUR), 23(1), pp.5-48. 
